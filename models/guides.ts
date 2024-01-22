@@ -9,7 +9,7 @@ const guideSchema = new Schema({
   },
   username: {
     type: String,
-    required: [true, 'username is required']
+    required: [true, "username is required"],
   },
   email: {
     type: String,
@@ -22,6 +22,12 @@ const guideSchema = new Schema({
   about: {
     type: String,
     required: [true, "Purpose is required"],
+    default: "No details provided",
+  },
+  price: {
+    type: Number,
+    min: 5,
+    required: [true, "price is required"],
   },
   rating: {
     type: Number,
@@ -39,7 +45,7 @@ const guideSchema = new Schema({
   },
   worked: {
     type: Number,
-    default: 100,
+    default: 0,
   },
   allowed: {
     type: Boolean,
@@ -51,6 +57,6 @@ const guideSchema = new Schema({
   },
 });
 
-const guides = mongoose.models.guides || mongoose.model("guides", guideSchema);
+const Guides = mongoose.models.Guides || mongoose.model("Guides", guideSchema);
 
-export default guides;
+export default Guides;
